@@ -1,0 +1,31 @@
+{
+  "name": "1cool/spider-icon",
+  "description": "Spider the website's icon by url",
+  "keywords": [
+    "icon",
+    "ico",
+    "favicon"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "1cool",
+      "email": "1coolluobo@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SpiderIcon\\": "src/"
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  },
+  "require": {
+    "symfony/dom-crawler": "^5.1",
+    "guzzlehttp/guzzle": "^7.0"
+  }
+}
