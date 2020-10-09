@@ -67,13 +67,13 @@ class Spider
             // 相对路径的图片
             return [
                 'type'    => Helper::STRING_URL,
-                'content' => $realUrl . str_replace('../', '/', $iconUrl),
+                'content' => $realUrl . str_replace('../', '', $iconUrl),
             ];
         }
 
         return [
             'type'    => Helper::STRING_URL,
-            'content' => $realUrl . $iconUrl,
+            'content' => $realUrl . ltrim($iconUrl, '/'),
         ];
     }
 
