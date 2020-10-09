@@ -40,7 +40,11 @@ class Spider
         ]);
 
         try {
-            $crawler->addHtmlContent($client->get($realUrl)->getBody()->getContents());
+            $crawler->addHtmlContent($client->get($realUrl, [
+                'headers' => [
+                    'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
+                ],
+            ])->getBody()->getContents());
 
             $iconUrl = $crawler->filterXPath('//link[contains(@rel, "icon")]')->attr('href');
         } catch (\Exception $exception) {
