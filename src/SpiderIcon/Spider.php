@@ -24,7 +24,7 @@ class Spider
      * @author 1cool
      * @date 2020/10/9 14:38
      */
-    public function request(string $url): array
+    public static function request(string $url): array
     {
         list($isValid, $realUrl) = Helper::checkUrlIsValid($url);
 
@@ -50,7 +50,7 @@ class Spider
         if (false !== strrpos($iconUrl, 'data:image/x-icon;base64')) {
             // base64的icon
             return [
-                'type'    => 'base64',
+                'type'    => Helper::STRING_BASE64,
                 'content' => $iconUrl,
             ];
         }
@@ -58,7 +58,7 @@ class Spider
         if (false !== strrpos($iconUrl, 'http')) {
             // 完整url
             return [
-                'type'    => 'url',
+                'type'    => Helper::STRING_URL,
                 'content' => $iconUrl,
             ];
         }
@@ -66,13 +66,13 @@ class Spider
         if (false !== strrpos($iconUrl, '../')) {
             // 相对路径的图片
             return [
-                'type'    => 'url',
+                'type'    => Helper::STRING_URL,
                 'content' => $realUrl . str_replace('../', '/', $iconUrl),
             ];
         }
 
         return [
-            'type'    => 'url',
+            'type'    => Helper::STRING_URL,
             'content' => $realUrl . $iconUrl,
         ];
     }

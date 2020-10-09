@@ -10,6 +10,8 @@ class Helper
     const HTTP_403 = 403;
     const HTTP_404 = 404;
     const HTTP_500 = 500;
+    const STRING_BASE64 = 'base64';
+    const STRING_URL = 'url';
 
     /**
      * 检查url有效性 是否还能够正常请求
