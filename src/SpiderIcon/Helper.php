@@ -10,8 +10,17 @@ class Helper
     const HTTP_403 = 403;
     const HTTP_404 = 404;
     const HTTP_500 = 500;
+    const HTTP_502 = 502;
+    const HTTP_504 = 504;
     const STRING_BASE64 = 'base64';
     const STRING_URL = 'url';
+    const INVALID_HTTP_CODE = [
+        self::HTTP_403,
+        self::HTTP_404,
+        self::HTTP_500,
+        self::HTTP_502,
+        self::HTTP_504,
+    ];
 
     /**
      * 检查url有效性 是否还能够正常请求
@@ -42,7 +51,7 @@ class Helper
 
         curl_close($ch);
 
-        if (self::HTTP_200 != $info['http_code']) {
+        if (isset(self::INVALID_HTTP_CODE[$info['http_code']])) {
             return [false, null];
         }
 
