@@ -47,6 +47,10 @@ class Spider
             return [];
         }
 
+        if (empty($iconUrl)) {
+            return [];
+        }
+
         if (false !== strrpos($iconUrl, 'data:image/x-icon;base64')) {
             // base64的icon
             return [
