@@ -59,7 +59,10 @@ class Spider
             ];
         }
 
-        if (false !== strrpos($iconUrl, 'http')) {
+        if (
+            false !== strrpos($iconUrl, 'http') ||
+            false !== strrpos($iconUrl, 'cdn')
+        ) {
             // 完整url
             return [
                 'type'    => Helper::STRING_URL,
