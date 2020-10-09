@@ -25,7 +25,8 @@
     }
   },
   "require": {
+    "php": "^7.0.*",
     "symfony/dom-crawler": "^5.1",
-    "guzzlehttp/guzzle": "^7.0"
+    "guzzlehttp/guzzle": "^6.3"
   }
 }
