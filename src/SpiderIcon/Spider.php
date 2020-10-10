@@ -20,7 +20,6 @@ class Spider
      * 3、 href如果包含url 就去获取，如果不包含就拼接url
      * @param string $url
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @author 1cool
      * @date 2020/10/9 14:38
      */
