@@ -1,7 +1,12 @@
 ### spider-icon
-spider the website's icon by url
+Spider the website's icon by url
 
 ### Use tutorial
+- install 
+```shell script
+composer require 1cool/spider-icon
+```
+- use guide
 ```php
 <?php
 use SpiderIcon\Spider;
