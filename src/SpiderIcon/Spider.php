@@ -73,7 +73,6 @@ class Spider
             ];
         }
 
-
         return [
             'type'    => Helper::STRING_URL,
             'content' => $realUrl . ltrim($iconUrl, '/'),
