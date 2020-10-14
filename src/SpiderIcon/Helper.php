@@ -14,8 +14,10 @@ class Helper
     const HTTP_500 = 500;
     const HTTP_502 = 502;
     const HTTP_504 = 504;
+
     const STRING_BASE64 = 'base64';
     const STRING_URL = 'url';
+
     const INVALID_HTTP_CODE = [
         self::HTTP_301,
         self::HTTP_302,
