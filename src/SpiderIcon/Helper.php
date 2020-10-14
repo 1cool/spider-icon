@@ -7,6 +7,8 @@ namespace SpiderIcon;
 class Helper
 {
     const HTTP_200 = 200;
+    const HTTP_301 = 301;
+    const HTTP_302 = 302;
     const HTTP_403 = 403;
     const HTTP_404 = 404;
     const HTTP_500 = 500;
@@ -15,6 +17,8 @@ class Helper
     const STRING_BASE64 = 'base64';
     const STRING_URL = 'url';
     const INVALID_HTTP_CODE = [
+        self::HTTP_301,
+        self::HTTP_302,
         self::HTTP_403,
         self::HTTP_404,
         self::HTTP_500,
