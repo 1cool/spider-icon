@@ -19,8 +19,8 @@ class Helper
     const STRING_URL = 'url';
 
     const INVALID_HTTP_CODE = [
-        self::HTTP_301,
-        self::HTTP_302,
+//        self::HTTP_301,
+//        self::HTTP_302,
         self::HTTP_403,
         self::HTTP_404,
         self::HTTP_500,
