@@ -47,7 +47,17 @@ class Spider
 
             $iconUrl = $crawler->filterXPath('//link[contains(@rel, "icon")]')->attr('href');
         } catch (\Exception $exception) {
-            return [];
+            // 如果页面没有就查默认的icon favicon.ico
+            list($isValid, $realUrl) = Helper::checkUrlIsValid($url . '/favicon.ico');
+
+            if (!$isValid) {
+                return [];
+            }
+
+            return [
+                'type'    => Helper::STRING_URL,
+                'content' => $realUrl,
+            ];
         }
 
         if (empty($iconUrl)) {
