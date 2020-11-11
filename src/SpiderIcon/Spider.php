@@ -54,6 +54,10 @@ class Spider
                 return [];
             }
 
+            if (!Helper::validRequestIsImage($realUrl)) {
+                return [];
+            }
+
             return [
                 'type'    => Helper::STRING_URL,
                 'content' => $realUrl,
