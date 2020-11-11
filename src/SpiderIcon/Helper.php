@@ -64,4 +64,39 @@ class Helper
         return [true, $info['url']];
     }
 
+    /**
+     * 验证url 是否返回图片内容
+     * @param $url
+     * @return bool
+     * @author 1cool
+     * @date 2020/11/11 11:44
+     */
+    public static function validRequestIsImage($url): bool
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            curl_close($ch);
+            return false;
+        }
+
+        $info = curl_getinfo($ch);
+
+        curl_close($ch);
+
+        if (FALSE === strpos($info['content_type'], 'image')) {
+            return false;
+        }
+
+        return true;
+    }
+
 }

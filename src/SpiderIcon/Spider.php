@@ -77,10 +77,18 @@ class Spider
             false !== strrpos($iconUrl, 'cdn')
         ) {
             // 完整url
+            if (!Helper::validRequestIsImage($iconUrl)) {
+                return [];
+            }
+
             return [
                 'type'    => Helper::STRING_URL,
                 'content' => $iconUrl,
             ];
+        }
+
+        if (!Helper::validRequestIsImage($realUrl . ltrim($iconUrl, '/'))) {
+            return [];
         }
 
         return [
@@ -88,5 +96,4 @@ class Spider
             'content' => $realUrl . ltrim($iconUrl, '/'),
         ];
     }
-
 }
